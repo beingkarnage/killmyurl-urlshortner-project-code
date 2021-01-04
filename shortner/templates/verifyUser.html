@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KillMyUrl </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/home.css' %}">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+  
+  <body >
+        <form action="" method="POST">
+          {% csrf_token %}
+          <fieldset>
+          <legend >Verify Email</legend>
+          <input type="password" name="password"><br>
+          <button id ="bt-submit" class="btn-grad" type="submit">Verify</button>
+        </form> 
+        <h4>
+          <ul class="messages">
+              {% for message in messages %}
+              <li{% if message.tags %} class="red"{% endif %}>{{ message }}</li>
+              {% endfor %}
+          </ul></h4>
+  </body>      
+  </html>

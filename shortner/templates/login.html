@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>KillMyUrl </title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}">
+        
+    </head>
+      
+      <body>
+        <form action="" method="post" name="myForm" autocomplete="on"> 
+            {% csrf_token %}
+          <h1 class="title">Login</h1>
+        
+          <div class="signup-field">
+            <label for="name">Username</label>
+            <input type="text" name="username" class="input-field" placeholder="Type your Username" required autofocus>
+          </div>
+        
+          <div class="signup-field">
+            <label for="last_name">Password</label>
+            <input type="password" name="password" class="input-field" placeholder="Type your Password" required autofocus>
+          </div>
+        
+        <div class="signup-button">
+          <input type="submit" class="btn-grad" value="Login">
+        </div>
+        <a href="{% url 'register' %}" class="link" >I Don't Have an Account</a><br>
+        <a class="link" href="mailto:khantosif94@gmail.com">Having Queries? Contact Developer</a>
+    </form> <!-- End of class="Form" container. -->
+      </body>  
+</html>

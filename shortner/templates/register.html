@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}">
+    <title>KillMyUrl </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+  
+  <body>
+      
+    <form action="" method="POST"  autocomplete="on"> <!-- name attribute bom rabil samo če dodam Javascript-->
+        {% csrf_token %}
+        {% if messages %}
+      <h4>
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="red"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul></h4>
+{% endif %}
+        
+
+      <h1 class="title">Register </h1>
+      
+
+      <div class="signup-field">
+        <label for="name">First Name</label>{{form.first_name}}
+      </div>
+    
+      <div class="signup-field">
+        <label for="last_name">Last Name</label>
+        {{form.last_name}}
+      </div>
+      <div class="signup-field">
+        <label for="username">Choose User Name</label>
+        {{form.username}}
+      </div>
+    
+      <div class="signup-field">
+        <label for="email">E-mail</label>
+        {{form.email}}
+      </div>
+    
+      <div class="signup-field">
+        <label for="password">Password</label>
+        {{form.password1}}
+      </div>
+      <div class="signup-field">
+        <label for="password">Confirm Password</label>
+        {{form.password2}}
+      </div>
+    
+     
+  
+    <div class="signup-button">
+      <input id="bt" class="btn btn-grad" type="submit" value="Register">
+    </div>
+    <a href="{% url 'loginU' %}" class="link" >Already Have An Account</a><br>
+    <a class="link" href="mailto:khantosif94@gmail.com">Having Queries? Contact Developer</a>
+    </form>
+  </body>  
+  <script>
+
+  $(document).ready(function() { 
+      document.getElementById("id_username").classList.add("input-field");
+      
+      document.getElementById("email").classList.add("input-field");
+      document.getElementById("f_name").classList.add("input-field");
+      document.getElementById("l_name").classList.add("input-field");
+      document.getElementById("id_password1").classList.add("input-field");
+      document.getElementById("id_password2").classList.add("input-field");
+      
+    });
+    $("#id_username").keyup(function(){
+       var username=$(this).val();
+       if(username!=""){
+         $.ajax({
+           url:'{% url 'check_username_exist' %}',
+           type:'POST',
+           data:{username:username}
+         })
+         .done(function(response){  
+          
+           if(response=="True"){
+             $(".username_error").remove();
+             $("<h6 class='username_error' style='padding: 5px;color: red;font-weight: bold;'>Username Not Available</h6>").insertAfter("#id_username");
+             $("#bt").disabled();
+
+}
+           else{
+             $(".username_error").remove();
+             $("<h6 class='username_error' style='padding: 5px;color: green;font-weight: bold;'>Username  Available</h6>").insertAfter("#id_username");
+}
+         })
+         .fail(function(){
+           console.log("something went wrong with username check");
+         })
+       }
+       else{
+         $(".username_error").remove();
+       }
+});
+
+</script>
+  </html>

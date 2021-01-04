@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KillMyUrl </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/home.css' %}">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+  
+  <body >
+    <h1>{{request.site.domain}}</h1>
+    <div class="container">
+      <h1 class="title">Welcome !!! {{request.user}}</h1>
+      <a href="{% url 'changepass' %}" ><button type="submit" class="btn-grad">Change Password</button></a>
+      <a href="{% url 'logoutU' %}" ><button type="submit" class="btn-grad">Logout</button></a>
+      <div class="smurl">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <fieldset>
+          <legend >Enter Url</legend>
+          <input id="id_url" type="text" name="url"><br>
+          <button id ="bt-submit" onclick="getUrl()" class="btn-grad" type="button" > Generate</button>
+        </form> 
+      </fieldset>
+      <h4 id="id_shortUrl"></h4>
+      </div>
+    </div>
+  </body>      
+  <script>
+    function getUrl(){
+       var url=document.getElementById("id_url").value;
+       if(url!=""){
+      console.log('sending this url ',url)         
+         $.ajax({
+           url:'{% url 'getUrl' %}',
+           type:'POST',
+           data:{url:url},
+         })
+         .done(function(response){  
+          
+           if(response.Url=="error"){
+            document.getElementById("id_shortUrl").innerHTML ="<a href= \"\" target='_blank'>Please Confirm Your Email First</a>"
+           }else{
+            document.getElementById("id_shortUrl").innerHTML ="Your Short Url<br> <a href=//"+response.Url+" target='_blank'>" +response.Url + "</a>"
+              }
+         })
+         .fail(function(){
+           console.log("something went wrong with url shortner");
+         })
+       }
+}
+  </script>
+  </html>

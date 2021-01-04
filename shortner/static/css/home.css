@@ -1,0 +1,114 @@
+/* Import Pretty Checkboxes*/
+@import "https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css";
+/* Import Varela Round from Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+/*Variables defined*/
+:root {
+  --main-color: coral;
+  --text-color: #444;
+  --formcolor: white;
+  --button-color: hsl(356, 90%, 64%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { /* html is full screen. */
+  height: 100%;
+  overflow: hidden;
+  }
+
+
+body {
+  display: flex; transition: ease 300ms;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  font-family: 'Varela Round', sans-serif; /* Very similar font to Helvetica Round.*/
+  font-size: 1.1rem;
+  font-weight: bold;
+background: linear-gradient(0deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+text-align: center;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-repeat: no-repeat; /* Don't repeat gradient in landscape mode on mobile phones*/
+  background-attachment: fixed;
+}
+
+.title {
+  padding: 10px 0px;
+  border-bottom: 3px solid;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  
+}
+
+
+
+.btn-grad {background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+margin-top: 10px;}
+.btn-grad {
+  border: transparent;
+   margin: 10px;
+   padding: 11px 20px;
+   text-align: center;
+   font-weight: 500;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+    font-size: 1.1rem;
+   border-radius: 10px;
+    box-shadow: none;
+ }
+
+.btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+   border-radius: 12px;
+   transform: translateY(-6px);
+  }
+
+
+ .container{
+  height: 100%;
+  width: 50%;;
+ }
+ 
+
+input{
+  width: 80%;
+  margin: 2px 2px;
+  border: transparent;
+  margin: 2rem 1rem;
+  background-color: ghostwhite;
+  font-size: 1.2rem;
+  color: #000000;
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.smurl{
+  border-radius: 1rem;
+  margin-top: 2rem;
+  padding: 30px;
+}
+fieldset{
+  border: 1px double orange;
+}
+a.btn-grad{
+  text-decoration: none;
+  position:relative;
+  top:1rem;
+}
+
+h4{
+  transform: translateY(10px);
+  padding: 20px;
+}

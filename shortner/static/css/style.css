@@ -1,0 +1,145 @@
+/* Import Pretty Checkboxes*/
+@import "https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css";
+/* Import Varela Round from Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+/*Variables defined*/
+:root {
+  --main-color: coral;
+  --text-color: #444;
+  --formcolor: white;
+  --button-color: hsl(356, 90%, 64%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { /* html is full screen. */
+  height: 100%;
+  overflow: hidden;
+  }
+
+body {
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  font-family: 'Varela Round', sans-serif; /* Very similar font to Helvetica Round.*/
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: linear-gradient(0deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%);
+  background-repeat: no-repeat; /* Don't repeat gradient in landscape mode on mobile phones*/
+  background-attachment: fixed;
+}
+.red{
+  font-size: .6rem;
+  color: red;
+}
+
+form {
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+
+  border-radius: 12px;
+  padding: 5vh 8vw;
+  background: var(--formcolor);
+  text-align: center;
+  box-shadow: 0px 0px 5px hsl(195, 50%, 98%);
+}
+
+.title {
+  padding: 10px 0px;
+  border-bottom: 3px solid;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.signup-field {
+  padding: 10px;
+  text-align: left;
+}
+
+fieldset {
+  display: inline;
+  text-align: center;
+  padding: 10px;
+}
+/*
+input[type="submit"] {
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  
+  padding: 0.4rem 1.8rem;
+  border: 2px outset var(--button-color);
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: transparent;
+  transition: all 0.2s ease-out;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: var(--button-color, black);
+  color: var(--formcolor);
+  transition-duration: 0.4s;
+}
+*/
+.input-field {
+  border: 0;
+  border-radius: 5px;
+  height: 40px;
+  padding: 0.8rem 1.2rem;
+  margin: 0.3rem 0;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  
+  background-color: #f0f0f0;
+}
+
+.link{
+    font-size: 0.9rem;
+    font-weight: 400;
+    position: relative;
+    top:2rem;
+}
+
+label {
+  position: relative;
+  left: 0;
+  transform: translate(10%);
+  display: block;
+}
+
+
+
+.btn-grad {background-image: linear-gradient(to right, #DA22FF 0%, #9733EE  51%, #DA22FF  100%)}
+.btn-grad {
+  border: 1px solid #fff;
+   margin: 10px;
+   padding: 10px 20px;
+   text-align: center;
+   font-weight: bold;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+    font-size: 1.2rem;
+   border-radius: 10px;
+    box-shadow: none;
+ }
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
